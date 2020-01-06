@@ -15,7 +15,8 @@
     <link href="{{ "webfonts/source-code-pro/main.css" | absURL }}" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="{{ "fontawesome/css/all.min.css" | absURL }}" />
 
-    <link rel="stylesheet" href="{{ "css/style.css" | absURL }}">
+    <link rel="stylesheet" href="{{ "css/style.css" | absURL }}"> 
+
     {{ range .Site.Params.customCss -}}
         <link rel="stylesheet" href="{{ . | absURL }}">
     {{- end }}
