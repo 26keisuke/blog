@@ -3,9 +3,11 @@ languageCode: jp
 title: Keisuke Iizuka 
 paginate: 5
 theme: hugo-theme-minos
+googleAnalytics: UA-129407596-3
 params:
   description: 飯塚啓介です。主にコンピューターサイエンスとビジネスに興味があります。
   eng_description: Hi, my name is Keisuke Iizuka! I'm interested in Computer Science and Business!
+  googleAnalytics: UA-129407596-3
 menu: 
   main:
   - name: Home
@@ -14,7 +16,6 @@ menu:
   - name: All Contents
     weight: 10
     url: /posts/
-
 author:
   github: 26keisuke
   twitter: keisuke_iizuka_

@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>{{ .Title }}{{ if ne .Title .Site.Title }} // {{ .Site.Title }}{{ end }}</title>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    {{ template "_internal/google_analytics.html" . }}
     
     {{ partial "meta.html" . }}
     {{ partial "og.html" . }}
