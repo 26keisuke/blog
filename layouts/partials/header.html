@@ -2,10 +2,13 @@
     <div id="header-outer" class="outer">
         <div id="header-inner" class="inner">
             <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
-            <a id="logo" class="logo-text" href="{{ .Site.Home.Permalink }}">{{ .Site.Title }}</a>
+            <a id="logo" class="logo-text" href="{{ .Site.Home.Permalink }}">
+                {{ .Site.Title }} 
+                <span style="font-size: 20px; margin-left: -11px;">（飯塚 啓介）</span>
+            </a>
             <nav id="main-nav">
                 {{ range .Site.Menus.main }}
-                <a class="main-nav-link" href="{{ .URL }}">{{ .Name }}</a>
+                <a class="main-nav-link" style="font-size: 16px;" href="{{ .URL }}">{{ .Name }}</a>
                 {{ end }}
             </nav>
             <nav id="sub-nav">

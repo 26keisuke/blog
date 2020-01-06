@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>{{ .Title }}{{ if ne .Title .Site.Title }} // {{ .Site.Title }}{{ end }}</title>
-
+    
     {{ partial "meta.html" . }}
     {{ partial "og.html" . }}
 
@@ -13,6 +13,7 @@
 
     <link href="{{ "webfonts/ptserif/main.css" | absURL }}" rel='stylesheet' type='text/css'>
     <link href="{{ "webfonts/source-code-pro/main.css" | absURL }}" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="{{ "fontawesome/css/all.min.css" | absURL }}" />
 
     <link rel="stylesheet" href="{{ "css/style.css" | absURL }}">
     {{ range .Site.Params.customCss -}}

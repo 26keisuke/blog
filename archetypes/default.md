@@ -1,8 +1,10 @@
-+++
-title = ""
-Description = ""
-date = {{ .Date }}
-Tags = []
-Categories = []
-menu = ""
-+++
+---
+
+title: {{ replace .Name "-" " " | title }}
+date: {{ .Date }}
+Tags: 
+Categories:
+draft: true
+summary:
+
+---

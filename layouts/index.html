@@ -3,6 +3,23 @@
 <div id="container">
     {{ partial "header.html" . }}
     <section id="main" class="outer">
+        <div id="intro" style="text-align: center">
+            <div id="intro-img"></div>
+            {{ .Site.Params.Description }}
+            <div style="margin: 5px;"></div>
+            {{ .Site.Params.Eng_Description }}
+            <ul id="social-media" style="display: flex; justify-content: center;">
+                {{- range .Site.Data.social.social_icons -}}
+                    {{- if isset $.Site.Author .id }}
+                        <li>
+                            <a href="{{ printf .url (index $.Site.Author .id) }}" title="{{ .title }}">
+                            <i class="{{ .icon }} fa-lg" id="intro-icon"></i>
+                            </a>
+                        </li>
+                    {{- end -}}
+                {{ end }}
+            </ul>
+        </div>
         {{ range where .Paginator.Pages "Params.hidden" "ne" "true" }}
         <article class="article article-type-post" itemscope itemprop="blogPost">
             <div class="article-inner">

@@ -1,0 +1,15 @@
+{{ partial "head.html" . }}
+
+<body>
+<div id="container">
+    {{ partial "header.html" . }}
+    <section id="main" class="outer">
+      <div style="height:30px;"></div>
+      <article class= itemscope itemprop="blogPost">
+        {{ .Content }}
+      </article>
+    </section>
+    {{ partial "footer.html" . }}
+</div>
+</body>
+</html>

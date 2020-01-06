@@ -1,9 +1,13 @@
 <nav id="article-nav">
     {{ if .NextPage }}
     <a href="{{ .NextPage.RelPermalink }}" id="article-nav-newer" class="article-nav-link-wrap">
-        <div class="article-nav-title"><span>&lt;</span>&nbsp;
-            {{ .NextPage.Title }}
+        {{ with .NextPage.Params.hidden}}
+            
+        {{ else }}
+        <div class="article-nav-title"><span>&lt;</span>&nbsp;   
+            {{ .NextPage.Title }}  
         </div>
+        {{ end }}
     </a>
     {{ end }}
     {{ if .PrevPage }}

@@ -1,0 +1,21 @@
+baseURL: https://chief.co.jp/blog
+languageCode: jp
+title: Keisuke Iizuka 
+paginate: 5
+theme: hugo-theme-minos
+params:
+  description: 飯塚啓介です。主にコンピューターサイエンスとビジネスに興味があります。
+  eng_description: Hi, my name is Keisuke Iizuka! I'm interested in Computer Science and Business!
+menu: 
+  main:
+  - name: Home
+    weight: 1
+    url: /
+  - name: All Contents
+    weight: 10
+    url: /posts/
+
+author:
+  github: 26keisuke
+  twitter: keisuke_iizuka_
+  email: 26keisuke@gmail.com

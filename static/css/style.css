@@ -449,7 +449,7 @@ a.article-title:hover,
   margin-bottom: 10px;
 }
 .article-title {
-  font-size: 2em;
+  font-size: 1.7em;
   font-weight: 700;
   line-height: 1em;
 }
@@ -724,7 +724,7 @@ a.article-title:hover,
 .archive-year-wrap,
 .archive-category-wrap,
 .archive-tag-wrap {
-  font-size: 1.4em;
+  font-size: 1.6em;
   margin-bottom: 1em;
 }
 .archives {
@@ -745,7 +745,7 @@ a.article-title:hover,
 .archive-article-date {
   color: #939393;
   text-decoration: none;
-  font-size: 0.85em;
+  font-size: 1em;
   line-height: 1em;
   margin-bottom: 0.5em;
   display: block;
@@ -1092,4 +1092,34 @@ pre .php .xml {
   font-size: 16px;
   font-family: 'PT Serif', 'STZhongsong', '华文中宋', 'Microsoft Yahei', serif;
   text-shadow: 1px 3px 3px rgba(0,0,0,0.5);
+}
+
+
+/* added by keisuke from here on */
+
+#intro {
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 35px;
+  margin-left: 40px;
+  margin-right: 40px;
+}
+
+#intro-icon {
+  color: #000000;
+  margin-top: 20px;
+  margin-left: 8px; 
+  margin-right: 8px;
+}
+
+#intro-img {
+  margin: 0px auto;
+  border: 1px black solid; 
+  width: 110px;
+  height: 110px;
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
+#li-name {
+  font-size:20px;
 }
