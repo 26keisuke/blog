@@ -581,6 +581,7 @@ a.article-title:hover,
   clear: both;
 }
 .article-footer a {
+  font-size: 1.3em;
   color: #939393;
   text-decoration: none;
 }

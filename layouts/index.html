@@ -5,9 +5,9 @@
     <section id="main" class="outer">
         <div id="intro" style="text-align: center">
             <div id="intro-img"></div>
-            {{ .Site.Params.Description }}
+                <h2>{{ .Site.Params.Description }}</h2>
             <div style="margin: 5px;"></div>
-            {{ .Site.Params.Eng_Description }}
+                <h2>{{ .Site.Params.Eng_Description }}</h2>
             <ul id="social-media" style="display: flex; justify-content: center;">
                 {{- range .Site.Data.social.social_icons -}}
                     {{- if isset $.Site.Author .id }}

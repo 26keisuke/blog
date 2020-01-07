@@ -8,9 +8,19 @@
     <language>jp</language>
     <managingEditor>26keisuke@gmail.com</managingEditor>
     <webMaster>26keisuke@gmail.com</webMaster>
+    <lastBuildDate>Mon, 06 Jan 2020 16:41:29 -0500</lastBuildDate>
     
 	<atom:link href="https://chief.co.jp/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Framework</title>
+      <link>https://chief.co.jp/tags/framework/</link>
+      <pubDate>Mon, 06 Jan 2020 16:41:29 -0500</pubDate>
+      <author>26keisuke@gmail.com</author>
+      <guid>https://chief.co.jp/tags/framework/</guid>
+      <description></description>
+    </item>
     
   </channel>
 </rss>

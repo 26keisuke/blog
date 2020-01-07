@@ -1,4 +1,9 @@
 <header id="header">
+    {{ with .Params.Pagetitle }}
+    <title>{{ . }}</title>
+    {{ else }}
+    <title>{{ .Site.Params.Title }}</title>
+    {{ end}}
     <div id="header-outer" class="outer">
         <div id="header-inner" class="inner">
             <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>

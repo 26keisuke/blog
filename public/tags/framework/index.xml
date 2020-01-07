@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>これまでの投稿 on Keisuke Iizuka</title>
-    <link>https://chief.co.jp/posts/</link>
-    <description>Recent content in これまでの投稿 on Keisuke Iizuka</description>
+    <title>Framework on Keisuke Iizuka</title>
+    <link>https://chief.co.jp/tags/framework/</link>
+    <description>Recent content in Framework on Keisuke Iizuka</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>jp</language>
     <managingEditor>26keisuke@gmail.com</managingEditor>
     <webMaster>26keisuke@gmail.com</webMaster>
     <lastBuildDate>Mon, 06 Jan 2020 16:41:29 -0500</lastBuildDate>
     
-	<atom:link href="https://chief.co.jp/posts/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://chief.co.jp/tags/framework/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
