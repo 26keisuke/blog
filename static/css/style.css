@@ -62,7 +62,7 @@ td {
   font-weight: inherit;
   font-style: inherit;
   font-family: inherit;
-  font-size: 100%;
+  font-size: 94%;
   vertical-align: baseline;
 }
 body {
@@ -119,7 +119,7 @@ body {
   -webkit-text-size-adjust: 100%;
 }
 .outer {
-  max-width: 800px;
+  max-width: 600px;
   margin: 0 auto;
 }
 .outer:before,
@@ -132,7 +132,7 @@ body {
 }
 @media screen and (max-width: 839px) {
   .outer {
-    padding: 0 20px;
+    padding: 0 40px;
   }
 }
 .left,
@@ -169,6 +169,11 @@ body {
   text-decoration: none;
   background-image: none;
 }
+
+.article-meta{
+  font-size: 1em;
+}
+
 .article-meta a,
 a.article-title,
 .article-entry a,
@@ -491,7 +496,7 @@ a.article-title:hover,
   max-width: 100%;
   height: auto;
   display: block;
-  margin: auto;
+  margin: 5px auto;
 }
 .article-entry iframe {
   border: none;
@@ -677,9 +682,9 @@ a.article-title:hover,
 .article-toc {
   display: none;
   position: fixed;
-  left: 50%;
+  left: 42%;
   top: 110px;
-  font-size: 0.9em;
+  font-size: 1em;
   width: 260px;
   margin-left: 400px;
   padding-left: 20px;
@@ -703,7 +708,7 @@ a.article-title:hover,
 .article-toc li a.active {
   font-weight: bold;
 }
-@media screen and (min-width: 1400px) {
+@media screen and (min-width: 950px) {
   .article-toc {
     display: block;
   }

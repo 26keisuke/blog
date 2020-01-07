@@ -8,7 +8,7 @@
                 <h2>{{ .Site.Params.Description }}</h2>
             <div style="margin: 5px;"></div>
                 <h2>{{ .Site.Params.Eng_Description }}</h2>
-            <ul id="social-media" style="display: flex; justify-content: center;">
+            <ul id="social-media" style="display: flex; justify-content: center; font-size: 1.1em;">
                 {{- range .Site.Data.social.social_icons -}}
                     {{- if isset $.Site.Author .id }}
                         <li>

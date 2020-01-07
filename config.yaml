@@ -5,7 +5,7 @@ paginate: 8
 theme: hugo-theme-minos
 markup:
   tableOfContents:
-    endLevel: 2
+    endLevel: 3
     ordered: false
     startLevel: 1
 params:
@@ -13,7 +13,7 @@ params:
   eng_description: Hi, my name is Keisuke Iizuka! I'm interested in Computer Science and Business!
   googleAnalytics: UA-129407596-3
   title: 飯塚啓介です。| Chief Blog
-  smartTOC: true
+  smartToc: true
   author: Keisuke Iizuka
   keywords:
     - スタートアップ 
