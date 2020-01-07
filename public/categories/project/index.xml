@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Keisuke Iizuka</title>
-    <link>https://chief.co.jp/</link>
-    <description>Recent content on Keisuke Iizuka</description>
+    <title>Project on Keisuke Iizuka</title>
+    <link>https://chief.co.jp/categories/project/</link>
+    <description>Recent content in Project on Keisuke Iizuka</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>jp</language>
     <managingEditor>26keisuke@gmail.com</managingEditor>
     <webMaster>26keisuke@gmail.com</webMaster>
     <lastBuildDate>Tue, 07 Jan 2020 03:03:38 -0500</lastBuildDate>
     
-	<atom:link href="https://chief.co.jp/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://chief.co.jp/categories/project/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -20,15 +20,6 @@
       <author>26keisuke@gmail.com</author>
       <guid>https://chief.co.jp/posts/deep-learning%E3%81%AE%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E3%81%8B%E3%82%89%E5%AD%A6%E3%82%93%E3%81%A0%E3%81%93%E3%81%A8/</guid>
       <description>LSTMを用いた株価予測Botを作りました。今回のDeep Learningのプロジェクトから学んだことをまとめていきます。</description>
-    </item>
-    
-    <item>
-      <title>最初の投稿</title>
-      <link>https://chief.co.jp/posts/%E6%9C%80%E5%88%9D%E3%81%AE%E6%8A%95%E7%A8%BF/</link>
-      <pubDate>Mon, 06 Jan 2020 16:41:29 -0500</pubDate>
-      <author>26keisuke@gmail.com</author>
-      <guid>https://chief.co.jp/posts/%E6%9C%80%E5%88%9D%E3%81%AE%E6%8A%95%E7%A8%BF/</guid>
-      <description>飯塚啓介です。自分は現在22才でニューヨーク大学に留学しています。Chiefという会社を経営しており、コンピューターサイエンスとビジネスに興味があります。最近は、Deep LearningとDistributed Systemを中心に勉強しています。</description>
     </item>
     
   </channel>

@@ -62,7 +62,7 @@ td {
   font-weight: inherit;
   font-style: inherit;
   font-family: inherit;
-  font-size: 94%;
+  font-size: 98%;
   vertical-align: baseline;
 }
 body {
@@ -119,7 +119,7 @@ body {
   -webkit-text-size-adjust: 100%;
 }
 .outer {
-  max-width: 600px;
+  max-width: 675px;
   margin: 0 auto;
 }
 .outer:before,
@@ -651,7 +651,7 @@ a.article-title:hover,
   margin-right: -2px;
 }
 .article-nav-title {
-  font-size: 1.2em;
+  font-size: 1.0em;
   line-height: 1.4em;
   margin-top: 0.5em;
 }
@@ -682,7 +682,7 @@ a.article-title:hover,
 .article-toc {
   display: none;
   position: fixed;
-  left: 42%;
+  left: 46%;
   top: 110px;
   font-size: 1em;
   width: 260px;

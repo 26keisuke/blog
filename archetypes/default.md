@@ -19,8 +19,8 @@ summary: Summary Here
 Start Here
 
 {{< figure src="" title="">}}
-{{< gist url=>/1/2/の1と2をここにspaceで分ける >}}
-{{< youtube "v="から始まるid >}}
+{{< gist >}}
+{{< youtube >}}
 
 ```
 def init():

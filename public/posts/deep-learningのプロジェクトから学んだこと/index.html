@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    
+    
+    <meta charset="utf-8">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <meta name="author" content="Keisuke Iizuka">
+    <meta name="description" content="LSTMを用いた株価予測Botを作りました。今回のDeep Learningのプロジェクトから学んだことをまとめていきます。">
+    <meta name="keywords" content="スタートアップ,テクノロジー,コンピューターサイエンス,ビジネス,ブログ,">
+
+        <meta property="og:title" content="Deep Learningのプロジェクトから学んだこと" />
+    <meta property="og:description" content="飯塚啓介です。主にコンピューターサイエンスとビジネスに興味があります。" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en" />
+    <meta property="og:url" content="https://chief.co.jp/posts/deep-learning%E3%81%AE%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E3%81%8B%E3%82%89%E5%AD%A6%E3%82%93%E3%81%A0%E3%81%93%E3%81%A8/" />
+    
+
+    <link rel="shortcut icon" href="/favicon.ico">
+
+    <link href="https://chief.co.jp/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+    <link href="https://chief.co.jp/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://chief.co.jp/fontawesome/css/all.min.css" />
+
+    <link rel="stylesheet" href="https://chief.co.jp/css/style.css"> 
+
+    
+
+    <meta name="generator" content="Hugo 0.62.2" />
+</head>
+
+
+<body>
+<div id="container">
+    <header id="header">
+    
+    <title>Deep Learningのプロジェクトから学んだこと | Chief Blog</title>
+    
+    <div id="header-outer" class="outer">
+        <div id="header-inner" class="inner">
+            <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
+            <a id="logo" class="logo-text" href="https://chief.co.jp/">
+                Keisuke Iizuka 
+                <span style="font-size: 20px; margin-left: -11px;">（飯塚 啓介）</span>
+            </a>
+            <nav id="main-nav">
+                
+                <a class="main-nav-link" style="font-size: 16px;" href="/">Home</a>
+                
+                <a class="main-nav-link" style="font-size: 16px;" href="/posts/">All Contents</a>
+                
+            </nav>
+            <nav id="sub-nav">
+                <div id="search-form-wrap">
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+
+    <section id="main" class="outer">
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        <header class="article-header">
+            <h1 class="article-title" itemprop="name">Deep Learningのプロジェクトから学んだこと</h1>
+        </header>
+        
+        <div class="article-meta">
+            <a href="/posts/deep-learning%E3%81%AE%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E3%81%8B%E3%82%89%E5%AD%A6%E3%82%93%E3%81%A0%E3%81%93%E3%81%A8/" class="article-date">
+                <time datetime='2020-01-07T03:03:38.000-05:00' itemprop="datePublished">2020-01-07</time>
+            </a>
+            
+            
+            <div class="post-categories">
+                <div class="article-category">
+                    
+                    
+                    <a class="article-category-link" href="https://chief.co.jp/categories/project">Project</a>
+                    
+                </div>
+            </div>
+            
+            
+        </div>
+        <div class="article-entry" itemprop="articleBody">
+            <h2 id="lstmを用いた株価予測bot">LSTMを用いた株価予測Bot</h2>
+<p>今回は、LSTMを用いた株価予測Botを作りました。Deep learningを用いたプロジェクトは初めてということもあり、Jonathan Huiさんのブログ(<a href="https://medium.com/@jonathan_hui/how-to-start-a-deep-learning-project-d9e1db90fa72">https://medium.com/@jonathan_hui/how-to-start-a-deep-learning-project-d9e1db90fa72</a>)を参考にしながらプロジェクトを進めました。</p>
+<h2 id="プロジェクトの目的">プロジェクトの目的</h2>
+<p>今回このプロジェクトを選んだのは、実際にDeep Learningプロジェクトを始めるに至って、どのプロセスが一番のボトルネックになるかを自分の目で確かめたかったからです。よくブログや掲示板などを見ていると、Feature EngineeringやData PreprocessingがMLのプロジェクトの60%以上を占めると聞きます。僕自身、ゼロから企画してプロジェクトを始めたことはなかった（既にPreprocessedされたDataを扱うことが多かった）ので、これをきっかけにDeep Learning Projectの大変さを体験してみたかったのです！</p>
+<p>したがって、今回の目的はProductionで使えるようなAIを作る事ではありません。とはいいつつも、プロジェクトを行う以上何か役に立つものを作りたかったので、そこまで複雑そうではない株式予測Botを作ることに決めましたのです。</p>
+<p>大まかな流れとして、以下のようにプロジェクトを進めました。実際にはこのように綺麗な感じではなく、各プロセスを行ったり来たりしています。右のカッコは各プロセスにかかったおおよその時間です。</p>
+<ol>
+<li>Read Papers (1 Day)</li>
+<li>Establish Project’s Goal（2 hours）</li>
+<li>Gather Public Data（1 hour）</li>
+<li>Data Preprocessing (2 Days)</li>
+<li>Build Multiple Models (2 Day)</li>
+<li>Debug! Debug! Debug!（2 days）</li>
+</ol>
+<p>合計で、5日かけて5つのモデルを学習することができました。モデルは、複数のInput Features（Closing Price, Opening Price, High Price, Low Price, Volumeなど）を元に次の日の株価（Closing Price, Opening Price, High Price, Low Price）を予測するというものです。</p>
+<p>Local上でゆっくりモデルを学習させる時間がなかったこともあり、適当な時間で学習をストップしてBenchmarkを比べています。</p>
+<p>全てのモデルが均等にBenchMarkと比べられるように、Baselineはt+1のPriceがtのPriceと同じと予想した時の誤差で計算しています。つまり、Resultがプラスであるならば、単純に1日前と同じ価格で予想した時よりも高い精度であると言えます。</p>
+<p>$$ Result = \dfrac{ Baseline - Predicted }{Baseline} $$
+$$ Predicted = Predicted_{t+1} - Target_{t+1} $$
+$$ Baseline = Target_{t} - Target_{t+1} $$</p>
+<h2 id="結果">結果</h2>
+<p>次に最終的な結果です。学習したモデルは五種類あり、大きく変えたParameter/Model Designとしては次の5つがあります。</p>
+<ul>
+<li>Input Feature</li>
+<li>Loss Function (MSE + Directional Loss)</li>
+<li>Transformer vs LSTM</li>
+<li>Window Length（次の日(t)の株価を予測するために、どこまで遡るか(t-n)）</li>
+<li>Positional Embedding On/Off</li>
+</ul>
+<p>データはKaggle(<a href="https://www.kaggle.com/borismarjanovic/price-volume-data-for-all-us-stocks-etfs">https://www.kaggle.com/borismarjanovic/price-volume-data-for-all-us-stocks-etfs</a>)から拾ってきており、アップルの株価のみを学習に使いました。 Input dataは全て、window length毎にMinMaxでnormalizeされており、permuteされた形でモデルにインプットされています。OptimizerはSGDを使用しています。Categorical valueは全てembeddingに変換されて、inputにconcatenateしています。&ldquo;Day of Week&quot;は曜日を指しています。このブログは、細かいテクノロジーのことを説明するブログではないので詳細は省きますが、今回のプロジェクトのソースコードは全てGithub(<a href="https://github.com/26keisuke/stock_predict">https://github.com/26keisuke/stock_predict</a>)にアップロードしてあります。</p>
+<pre><code>Stock_Model_0: 
+
+Architecture: LSTM
+Input: Close, Open, High, Low
+Window Length: 60
+Epochs: 35
+Result: .17507
+</code></pre><pre><code>Stock_Model_1: 
+
+Architecture: LSTM
+Input: Close, Open, High, Low
+Window Length: 120
+Epochs: 97
+Result: .288717
+</code></pre><pre><code>Stock_Model_2: 
+
+Architecture: LSTM
+Input: Close, Open, High, Low, Month, Year, Day_of_Week, Hour
+Window Length: 120
+Epochs: 13
+Result: .12283
+</code></pre><pre><code>Stock_Model_3: 
+
+Architecture: LSTM
+Input: Close, Open, High, Low, Month, Year, Day_of_Week, Hour, Positional Embedding
+Window Length: 120
+Epochs: 31
+Result: .20049
+</code></pre><pre><code>Stock_Model_4: 
+
+Architecture: Transformer
+Input: Close, Open, High, Low, Month, Year, Day_of_Week, Hour, Positional Embedding
+Window Length: 120
+Epochs: 31
+Result: -1.8893
+</code></pre><p>学習時間が違うので一概には言えませんが、予想に反して一番単純なLSTM（Stock_Model_1）が一番正確だと言うことがわかりました。正直これは意外でした。株価の予想の方向（上昇か下降か）に基づいたcostや、より多くの情報をinputに加えてみたりしましたが、どれも精度歯落ちてしまいました。</p>
+<p>このモデルがどれくらい正確かというと、下のtest dataの結果が参考になると思います。赤が本来の株価、青がLSTMが予測したt+1の株価です。</p>
+<figure>
+    <img src="/img/result.png"/> 
+</figure>
+
+<p>ざっとみると、t+1の値がtよりかけ離れていてもt-120までの値が安定しているならば、割と良い予測（t = 0~300までの部分）ができているように思います。しかしt &gt; 300以降は、株価のスイングとともに徐々に予測が乖離していっています。もしかしすると**Appleの株価自体が比較的上昇し続けているために、このような動きをするデータが足りなかったのかもしれません。**とすると、まだまだ改善余地はあると思います。</p>
+<p>Company/ETF embeddingを足したりtraining dataを増やしたりと、この他にも試したいことはたくさんありますが、今回はここらへんで一旦切り上げようと思います。</p>
+<h2 id="プロジェクトから学んだこと">プロジェクトから学んだこと</h2>
+<p>最後に、自分がこのプロジェクトから学んだことをまとめていきます。</p>
+<ul>
+<li>モデルが増えるにつれて、Data Preprocessingが非常に複雑になっていく</li>
+</ul>
+<p>モデルによってはinputのサイズを変えなくてはいけないものもあるので、どのようにしてgenericなpreprocessor作っていくのかばかり考えていました。結果的に、長く複雑なコードになってしまいました。</p>
+<ul>
+<li>CPUには限界がある</li>
+</ul>
+<p>待つ時間が非常にもったいない。</p>
+<ul>
+<li>Baselineを設定するのが難しい</li>
+</ul>
+<p>最初は不完全なBaselineを元に複数のモデルを試していたため、どうしても優劣をつけるのが難しかったです。結果、意味なく無駄に学習させてしまったモデルが4つほどありました。自分のBaselineが数学的に正しいかは置いといて、絶対的にモデルを比較できる数字を用意することで多くの発見が生まれました。</p>
+<ul>
+<li>Hyperparameters &amp; Model Designを複雑にしてしまう</li>
+</ul>
+<p>しっかりと学習結果の意味を解釈しないまま新たにhyperparameterを追加したり、レイヤーを増やしたりしてもより複雑になるばかりか、精度も落ちることがほとんどでした。</p>
+<ul>
+<li>Clean Dataは悩みの種</li>
+</ul>
+<p>データそのものがcleanじゃないと、garbage in garbage outで終わってしまいました。そのため、最初はデータの加工ばかりをしていました。プロジェクトの序盤でしっかりとcleanなdataを用意しておくことは非常に重要です！</p>
+<ul>
+<li>より早くミスに気づくこと</li>
+</ul>
+<p>Tensorboardなどを使ってgradientやweightを可視化することによって、より早くミス（nanとかgradient vanishingとか）に気づく必要性に気付きました。</p>
+<p>これらを一言でまとめるならば、**&ldquo;Deep learningのDebugginは非常に難しい&rdquo;**ということです。たった5日間の趣味程度のプロジェクトでしたが、非常に学ぶことは多かったです。このような解決すべき&quot;自分のニーズ&quot;を見つけた今、今後はDeep learning周りのtoolを一通りみていこうと思います。</p>
+
+        </div>
+
+        
+        
+        <div class="article-toc" style="display:none;">
+            <h3>Contents</h3>
+            <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#lstmを用いた株価予測bot">LSTMを用いた株価予測Bot</a></li>
+        <li><a href="#プロジェクトの目的">プロジェクトの目的</a></li>
+        <li><a href="#結果">結果</a></li>
+        <li><a href="#プロジェクトから学んだこと">プロジェクトから学んだこと</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        </div>
+        
+        
+
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.slim.min.js" integrity="sha256-/SIrNqv8h6QGKDuNoLGA4iret+kyesCkHGzVUUV0shc=" crossorigin="anonymous"></script>
+        <script>
+            (function() {
+                var $toc = $('#TableOfContents');
+                if ($toc.length > 0) {
+                    var $window = $(window);
+
+                    function onScroll(){
+                        var currentScroll = $window.scrollTop();
+                        var h = $('.article-entry h1, .article-entry h2, .article-entry h3, .article-entry h4, .article-entry h5, .article-entry h6');
+                        var id = "";
+                        h.each(function (i, e) {
+                            e = $(e);
+                            if (e.offset().top - 10 <= currentScroll) {
+                                id = e.attr('id');
+                            }
+                        });
+                        var active = $toc.find('a.active');
+                        if (active.length == 1 && active.eq(0).attr('href') == '#' + id) return true;
+
+                        active.each(function (i, e) {
+                            $(e).removeClass('active').siblings('ul').hide();
+                        });
+                        $toc.find('a[href="#' + id + '"]').parentsUntil('#TableOfContents').each(function (i, e) {
+                            $(e).children('a').addClass('active').siblings('ul').show();
+                        });
+                    }
+
+                    $window.on('scroll', onScroll);
+                    $(document).ready(function() {
+                        $toc.find('a').parent('li').find('ul').hide();
+                        onScroll();
+                        document.getElementsByClassName('article-toc')[0].style.display = '';
+                    });
+                }
+            })();
+        </script>
+        
+
+
+        
+        <footer class="article-footer">
+            <ul class="article-tag-list">
+                
+                <li class="article-tag-list-item">
+                    <a class="article-tag-list-link" href="https://chief.co.jp/tags/dl-stock">DL, Stock
+                    </a>
+                </li>
+                
+            </ul>
+        </footer>
+        
+    </div>
+    <nav id="article-nav">
+    
+    
+    <a href="/posts/%E6%9C%80%E5%88%9D%E3%81%AE%E6%8A%95%E7%A8%BF/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">最初の投稿&nbsp;<span>&gt;</span></div>
+    </a>
+    
+</nav>
+
+</article>
+
+        
+    </section>
+    <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            &copy; 2020 Keisuke Iizuka
+            <br />
+            Powered by <a href="https://gohugo.io" target="_blank">Hugo</a> with theme <a href="https://github.com/carsonip/hugo-theme-minos" target="_blank">Minos</a>
+        </div>
+    </div>
+    
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/tomorrow-night.min.css" integrity="sha256-2wL88NKUqvJi/ExflDzkzUumjUM73mcK2gBvBBeLvTk=" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js" integrity="sha256-KbfTjB0WZ8vvXngdpJGY3Yp3xKk+tttbqClO11anCIU=" crossorigin="anonymous"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js" integrity="sha384-/y1Nn9+QQAipbNQWU65krzJralCnuOasHncUFXGkdwntGeSvQicrYkiUBwsgUqc1" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js" integrity="sha256-ExtbCSBuYA7kq1Pz362ibde9nnsHYPt6JxuxYeZbU+c=" crossorigin="anonymous"></script>
+        <script>renderMathInElement(document.body);</script>
+    
+    <script>
+        document.getElementById('main-nav-toggle').addEventListener('click', function () {
+            var header = document.getElementById('header');
+            if (header.classList.contains('mobile-on')) {
+                header.classList.remove('mobile-on');
+            } else {
+                header.classList.add('mobile-on');
+            }
+        });
+    </script>
+</footer>
+
+</div>
+</body>
+</html>

@@ -8,10 +8,19 @@
     <language>jp</language>
     <managingEditor>26keisuke@gmail.com</managingEditor>
     <webMaster>26keisuke@gmail.com</webMaster>
-    <lastBuildDate>Mon, 06 Jan 2020 16:41:29 -0500</lastBuildDate>
+    <lastBuildDate>Tue, 07 Jan 2020 03:03:38 -0500</lastBuildDate>
     
 	<atom:link href="https://chief.co.jp/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>DL, Stock</title>
+      <link>https://chief.co.jp/tags/dl-stock/</link>
+      <pubDate>Tue, 07 Jan 2020 03:03:38 -0500</pubDate>
+      <author>26keisuke@gmail.com</author>
+      <guid>https://chief.co.jp/tags/dl-stock/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Framework</title>
