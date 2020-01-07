@@ -55,7 +55,7 @@
                 <div class="article-entry" itemprop="articleBody">
                     <p>
                         {{ if .Params.featuredImage }}<img src="{{.Params.featuredImage}}"><br>{{ end }}
-                    {{ .Summary }}
+                        {{ .Params.Summary }}
                     </p>
                     <p class="article-more-link">
                         <a href="{{ .RelPermalink }}">Read More</a>
