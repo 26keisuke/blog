@@ -1,0 +1,1 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/67d07c63-953c-4db0-b693-74023a9c8a7f/deploy-status)](https://app.netlify.com/sites/inspiring-bhabha-1806b0/deploys)
