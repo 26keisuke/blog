@@ -116,10 +116,10 @@ ReutersやFinancial Timesの記事を参考にするものと、StockTwitsやHot
 <ol>
 <li>MinMaxでスケーリングする</li>
 <li>タイムステップiと値xを元に、polar coordinateに移し替える
-$$ \phi_{i} = \arccos{x} $$<br>
-$$ r_{i} = radius(i/N) $$</li>
+$$\phi_{i} = \arccos{x}$$<br>
+$$r_{i} = radius(i/N)$$</li>
 <li>最後にinner productの代わりに
-$$ \cos(\phi_{x} + \phi_{y}) $$
+$$\cos(\phi_{x} + \phi_{y})$$
 を用いてGramian Matrixを計算する。ここでinner productを使わない理由は、2つの情報量(xとy)が1つに減ってしまうからだそうです。</li>
 </ol>
 <p>ここに(<a href="https://medium.com/analytics-vidhya/encoding-time-series-as-images-b043becbdbf3">https://medium.com/analytics-vidhya/encoding-time-series-as-images-b043becbdbf3</a>)綺麗なアニメーションがあるので、わかりやすいと思います。</p>
@@ -141,9 +141,9 @@ $$ \cos(\phi_{x} + \phi_{y}) $$
 <h2 id="5-build-multiple-models">5. Build Multiple Models</h2>
 <p>まず、必要なのが適切なbaselineの設定です。僕の場合、最初に不完全なbaselineを設定していたため、どうしてもモデルの優劣をつけるのが難しかったです。結果的に、無駄に学習させてしまったモデルが4つほどありました。絶対的にモデルを比較できる数字を用意することで、多くの発見が生まれました。</p>
 <p>全てのモデルが均等にbaselineと比べられるように、baselineはt+1のpriceがtのpriceと同じと予想した時の誤差で計算しています。つまり、Resultがプラスであるならば、単純に1日前と同じ価格で予想した時よりも高い精度であると言えます。</p>
-<p>$$ Result = \dfrac{ Baseline - Predicted }{Baseline} $$
-$$ Predicted = Predicted_{t+1} - Target_{t+1} $$
-$$ Baseline = Target_{t} - Target_{t+1} $$</p>
+<p>$$Result = \dfrac{ Baseline - Predicted }{Baseline}$$
+$$Predicted = Predicted_{t+1} - Target_{t+1}$$
+$$Baseline = Target_{t} - Target_{t+1}$$</p>
 <p>もうひとつ行き当たった壁が、しっかりと学習結果の意味を解釈しないまま新たにhyperparameterを追加したり、レイヤーを増やしたりしてしまったことです。これによってモデルがより複雑になるだけでなく、精度も落ちることがほとんどでした。</p>
 <h2 id="結果">結果</h2>
 <p>次に最終的な結果です。学習したモデルは五種類あり、大きく変えたParameter/Model Designとしては次の5つがあります。Local上でゆっくりモデルを学習させる時間がなかったこともあって、適当な時間で学習をストップしてモデルの精度を比べています。変えた要素は以下の通りです。</p>
@@ -204,7 +204,7 @@ Result: -1.8893
 </ul>
 <p>などです。</p>
 <h2 id="プロジェクトから学んだこと">プロジェクトから学んだこと</h2>
-<p>最後に、自分がこのプロジェクトから学んだことをまとめていきます。一言でまとめるならば、</p>
+<p>最後に、自分がこのプロジェクトから学んだことは、</p>
 <p><strong>Debugging neural networks is hard!!!</strong></p>
 <p>ということです。</p>
 <p>たった5日間の趣味程度のプロジェクトでしたが、非常に学ぶことは多かったです。このような解決すべき&quot;ニーズ&quot;を見つけた今、今度はDeep learning周りのtoolやframeworkを一通りみていこうと思います。</p>

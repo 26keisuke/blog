@@ -52,10 +52,10 @@ ReutersやFinancial Timesの記事を参考にするものと、StockTwitsやHot
 
 1. MinMaxでスケーリングする
 2. タイムステップiと値xを元に、polar coordinateに移し替える
-$$ \phi_{i} = \arccos{x} $$  
-$$ r_{i} = radius(i/N) $$
+$$\phi_{i} = \arccos{x}$$  
+$$r_{i} = radius(i/N)$$
 3. 最後にinner productの代わりに 
-$$ \cos(\phi_{x} + \phi_{y}) $$ 
+$$\cos(\phi_{x} + \phi_{y})$$ 
 を用いてGramian Matrixを計算する。ここでinner productを使わない理由は、2つの情報量(xとy)が1つに減ってしまうからだそうです。
 
 ここに(https://medium.com/analytics-vidhya/encoding-time-series-as-images-b043becbdbf3)綺麗なアニメーションがあるので、わかりやすいと思います。
@@ -93,9 +93,9 @@ $$ \cos(\phi_{x} + \phi_{y}) $$
 
 全てのモデルが均等にbaselineと比べられるように、baselineはt+1のpriceがtのpriceと同じと予想した時の誤差で計算しています。つまり、Resultがプラスであるならば、単純に1日前と同じ価格で予想した時よりも高い精度であると言えます。
 
-$$ Result = \dfrac{ Baseline - Predicted }{Baseline} $$
-$$ Predicted = Predicted_{t+1} - Target_{t+1} $$
-$$ Baseline = Target_{t} - Target_{t+1} $$
+$$Result = \dfrac{ Baseline - Predicted }{Baseline}$$
+$$Predicted = Predicted_{t+1} - Target_{t+1}$$
+$$Baseline = Target_{t} - Target_{t+1}$$
 
 もうひとつ行き当たった壁が、しっかりと学習結果の意味を解釈しないまま新たにhyperparameterを追加したり、レイヤーを増やしたりしてしまったことです。これによってモデルがより複雑になるだけでなく、精度も落ちることがほとんどでした。
 
@@ -173,7 +173,7 @@ Result: -1.8893
 
 ## プロジェクトから学んだこと
 
-最後に、自分がこのプロジェクトから学んだことをまとめていきます。一言でまとめるならば、
+最後に、自分がこのプロジェクトから学んだことは、
 
 **Debugging neural networks is hard!!!**
 
